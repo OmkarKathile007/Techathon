@@ -2,6 +2,14 @@
 @tailwind components;
 @tailwind utilities;
 
+/* @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@700&display=swap'); Example font */
+
+.text-gold {
+  color: #d4af37; /* Gold color */
+}
+
+
+
 :root {
   --background: #ffffff;
   --foreground: #ffffff;

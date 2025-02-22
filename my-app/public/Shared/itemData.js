@@ -8,6 +8,7 @@ import SecondImg from '../images/secondimg.webp'
 import ThirdImg from '../images/thirdimg.webp'
 import FourthImg from '../images/fourthimg.webp'
 import FifthImg from '../images/fiftimg.webp'
+import LogoPng from '../images/logonew.png'
 
 
 const images = [
@@ -20,3 +21,6 @@ const images = [
 ];
 
 export default images;
+export {LogoPng}
+
+// export default LogoPng;

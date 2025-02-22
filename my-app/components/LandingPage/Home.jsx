@@ -1,12 +1,13 @@
 
-"use client"
+"use client";
+
 import Navbar from './Navbar';
 import React from 'react';
 import { motion } from 'framer-motion';
 import { Utensils, HeartHandshake, Clock, MapPin, Leaf, ShieldCheck } from 'lucide-react';
-
 import ImageSlider from './ImageSlider';
 import Link from 'next/link';
+import Script from 'next/script';
 
 const fadeIn = {
   initial: { opacity: 0, y: 20 },
@@ -56,7 +57,7 @@ function Home() {
                 </motion.p>
 
                 <motion.div variants={fadeIn} className="flex gap-4">
-                  <Link href="/signup">
+                  <Link href="/login">
                     <motion.button 
                       whileHover={{ scale: 1.05 }}
                       whileTap={{ scale: 0.95 }}
@@ -182,11 +183,28 @@ function Home() {
             </motion.div>
           </div>
         </section>
-
       </main>
-      {/* <Footer /> */}
+
+      {/* Watson Assistant Chatbot Integration */}
+      <Script id="watson-chat-options" strategy="afterInteractive">
+        {`
+          window.watsonAssistantChatOptions = {
+            integrationID: "c7cf9b64-599b-441d-afb1-b39bcbdb4440", // The ID of this integration.
+            region: "au-syd", // The region your integration is hosted in.
+            serviceInstanceID: "e800a508-cd46-4310-8aec-21a55012d210", // The ID of your service instance.
+            onLoad: async (instance) => { await instance.render(); }
+          };
+          setTimeout(function(){
+            const t = document.createElement('script');
+            t.src = "https://web-chat.global.assistant.watson.appdomain.cloud/versions/" + 
+              (window.watsonAssistantChatOptions.clientVersion || 'latest') + 
+              "/WatsonAssistantChatEntry.js";
+            document.head.appendChild(t);
+          });
+        `}
+      </Script>
     </>
-  )
+  );
 }
 
-export default Home
+export default Home;
