@@ -15,6 +15,7 @@
     "@next/font": "^14.2.15",
     "cors": "^2.8.5",
     "dotenv": "^16.4.7",
+    "exif-js": "^2.3.0",
     "express": "^4.21.2",
     "fortawesome": "^0.0.1-security",
     "framer-motion": "^12.4.7",
